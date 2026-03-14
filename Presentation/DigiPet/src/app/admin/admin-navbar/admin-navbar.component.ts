@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
 	selector: 'app-admin-navbar',
+	standalone: false,
 	templateUrl: './admin-navbar.component.html',
 	styleUrls: ['./admin-navbar.component.css']
 })

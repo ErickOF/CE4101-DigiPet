@@ -6,6 +6,7 @@ import { UsersService } from './../../services/api/users/users.service';
 
 @Component({
 	selector: 'app-admin-user-reports',
+	standalone: false,
 	templateUrl: './admin-user-reports.component.html',
 	styleUrls: ['./admin-user-reports.component.css']
 })

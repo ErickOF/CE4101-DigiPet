@@ -6,6 +6,7 @@ import { UsersService } from './../../services/api/users/users.service';
 
 @Component({
 	selector: 'app-owner-services',
+	standalone: false,
 	templateUrl: './owner-services.component.html',
 	styleUrls: ['./owner-services.component.css']
 })

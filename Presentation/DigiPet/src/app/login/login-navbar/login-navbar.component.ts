@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login-navbar',
+	standalone: false,
 	templateUrl: './login-navbar.component.html',
 	styleUrls: ['./login-navbar.component.css']
 })

@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
 	selector: 'app-pet-care-navbar',
+	standalone: false,
 	templateUrl: './pet-care-navbar.component.html',
 	styleUrls: ['./pet-care-navbar.component.css']
 })

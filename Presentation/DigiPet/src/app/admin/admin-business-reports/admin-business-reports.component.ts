@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-admin-business-reports',
+  standalone: false,
   templateUrl: './admin-business-reports.component.html',
   styleUrls: ['./admin-business-reports.component.css']
 })

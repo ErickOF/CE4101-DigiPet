@@ -7,6 +7,7 @@ import { UsersService } from './../../services/api/users/users.service';
 
 @Component({
 	selector: 'app-pet-care-schedule',
+	standalone: false,
 	templateUrl: './pet-care-schedule.component.html',
 	styleUrls: ['./pet-care-schedule.component.css']
 })
@@ -54,8 +55,8 @@ export class PetCareScheduleComponent implements OnInit {
 			for (var i = 0; i < this.schedule.Week.length; i++) {
 				if (this.schedule.Week[i]["Date"] == day) {
 					this.schedule.Week[i]["HoursAvailable"].splice(this.schedule.Week[i]["HoursAvailable"].indexOf(hour.split(':')[0]), 1);
-					if (this.schedule.Week[i] == []) {
-						this.schedule.Week[i]["HoursAvailable"].splice(i, 1);
+					if (this.schedule.Week[i]["HoursAvailable"].length === 0) {
+						this.schedule.Week.splice(i, 1);
 						break;
 					}
 				}

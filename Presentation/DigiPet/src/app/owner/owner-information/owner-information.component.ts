@@ -5,6 +5,7 @@ import { DataTransferService } from './../../services/data-transfer/data-transfe
 
 @Component({
 	selector: 'app-owner-information',
+	standalone: false,
 	templateUrl: './owner-information.component.html',
 	styleUrls: ['./owner-information.component.css']
 })

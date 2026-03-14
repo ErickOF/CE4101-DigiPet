@@ -8,6 +8,7 @@ import { UsersService } from './../../services/api/users/users.service';
 
 @Component({
 	selector: 'app-admin-pet-cares',
+	standalone: false,
 	templateUrl: './admin-pet-cares.component.html',
 	styleUrls: ['./admin-pet-cares.component.css']
 })

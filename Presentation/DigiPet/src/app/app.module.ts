@@ -1,17 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireStorageModule } from 'angularfire2/storage';
-
-import { MatTableModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
-
-import { environment } from './../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,6 +44,7 @@ import { AdminPetCaresComponent } from './admin/admin-pet-cares/admin-pet-cares.
 import { AdminBusinessReportsComponent } from './admin/admin-business-reports/admin-business-reports.component';
 import { AdminUserReportsComponent } from './admin/admin-user-reports/admin-user-reports.component';
 import { OwnerNoRatingComponent } from './owner/owner-no-rating/owner-no-rating.component';
+import { NgxLoadingShimComponent } from './shared/ngx-loading-shim/ngx-loading-shim.component';
 
 
 @NgModule({
@@ -80,27 +74,17 @@ import { OwnerNoRatingComponent } from './owner/owner-no-rating/owner-no-rating.
 		AdminPetCaresComponent,
 		AdminBusinessReportsComponent,
 		AdminUserReportsComponent,
-		OwnerNoRatingComponent
+		OwnerNoRatingComponent,
+		NgxLoadingShimComponent
 	],
 	imports: [
-		AngularFireModule.initializeApp(environment.firebase),
-		AngularFireStorageModule,
 		AppRoutingModule,
 		BrowserModule,
 		BrowserAnimationsModule,
-		FileUploadModule,
 		FormsModule,
 		HttpClientModule,
 		MatTableModule,
 		MatTabsModule,
-		NgxLoadingModule.forRoot({
-			animationType: ngxLoadingAnimationTypes.circleSwish,
-			backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
-			backdropBorderRadius: '4px',
-			primaryColour: '#ffffff', 
-			secondaryColour: '#ffffff', 
-			tertiaryColour: '#ffffff'
-		}),
 		ReactiveFormsModule
 	],
 	providers: [

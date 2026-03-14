@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgxLoadingComponent } from 'ngx-loading';
 import { Observable } from "rxjs";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -13,6 +12,7 @@ import { ImgUploadService } from './../../services/uploads/img-upload/img-upload
 
 @Component({
 	selector: 'app-tab-owner',
+	standalone: false,
 	templateUrl: './tab-owner.component.html',
 	styleUrls: ['./tab-owner.component.css']
 })

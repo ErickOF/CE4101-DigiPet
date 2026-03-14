@@ -8,6 +8,7 @@ import { UsersService } from './../../services/api/users/users.service';
 
 @Component({
 	selector: 'app-owner-no-rating',
+	standalone: false,
 	templateUrl: './owner-no-rating.component.html',
 	styleUrls: ['./owner-no-rating.component.css']
 })
@@ -115,13 +116,9 @@ export class OwnerNoRatingComponent implements OnInit {
 			inputPlaceholder: 'Calificar servicio',
 			showCancelButton: true,
 			inputValidator: (value) => {
-				return new Promise((resolve) => {
-					if (value in [0,1,2,3,4,5]) {
-						resolve()
-					} else {
-						resolve('¡Por favor seleccionar la calificación!')
-					}
-				})
+				return ['0', '1', '2', '3', '4', '5'].includes(value)
+					? ''
+					: '¡Por favor seleccionar la calificación!';
 			}
 		}).then((result) => {
 			if (result.value) {

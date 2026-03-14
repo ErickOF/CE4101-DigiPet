@@ -7,6 +7,7 @@ import { UsersService } from './../services/api/users/users.service';
 
 @Component({
 	selector: 'app-pet-care',
+	standalone: false,
 	templateUrl: './pet-care.component.html',
 	styleUrls: ['./pet-care.component.css']
 })

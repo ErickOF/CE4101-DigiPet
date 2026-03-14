@@ -1,6 +1,6 @@
 # DigiPet
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
 
 ## Development server
 
@@ -16,11 +16,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Unit tests are not configured in this Angular 21 migration.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+E2E tests are not configured in this Angular 21 migration.
 
 ## Further help
 

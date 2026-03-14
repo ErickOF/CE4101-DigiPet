@@ -14,6 +14,7 @@ window.onclick = function(event) {
 
 @Component({
 	selector: 'app-pet-care-history',
+	standalone: false,
 	templateUrl: './pet-care-history.component.html',
 	styleUrls: ['./pet-care-history.component.css']
 })

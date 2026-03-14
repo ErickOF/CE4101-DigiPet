@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
-import { NgxLoadingComponent } from 'ngx-loading';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -12,6 +11,7 @@ import { EncryptionService } from './../services/encryption/encryption.service';
 
 @Component({
 	selector: 'app-login',
+	standalone: false,
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })

@@ -5,6 +5,7 @@ import { DataTransferService } from './../../services/data-transfer/data-transfe
 
 @Component({
 	selector: 'app-pet-care-information',
+	standalone: false,
 	templateUrl: './pet-care-information.component.html',
 	styleUrls: ['./pet-care-information.component.css']
 })

@@ -5,6 +5,7 @@ import { DataTransferService } from './../../services/data-transfer/data-transfe
 
 @Component({
 	selector: 'app-admin-information',
+	standalone: false,
 	templateUrl: './admin-information.component.html',
 	styleUrls: ['./admin-information.component.css']
 })

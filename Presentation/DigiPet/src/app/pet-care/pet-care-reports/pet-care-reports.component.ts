@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgxLoadingComponent } from 'ngx-loading';
 import { Observable } from "rxjs";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -22,6 +21,7 @@ window.onclick = function(event) {
 
 @Component({
 	selector: 'app-pet-care-reports',
+	standalone: false,
 	templateUrl: './pet-care-reports.component.html',
 	styleUrls: ['./pet-care-reports.component.css']
 })
