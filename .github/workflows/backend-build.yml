@@ -1,0 +1,34 @@
+name: Build Backend
+
+on:
+  push:
+    paths:
+      - 'BackEnd/**'
+      - '.github/workflows/backend-build.yml'
+  pull_request:
+    paths:
+      - 'BackEnd/**'
+      - '.github/workflows/backend-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up .NET Core SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 2.2.x
+
+      - name: Restore dependencies
+        run: dotnet restore BackEnd/BackEnd/WebApi.sln
+
+      - name: Build backend
+        run: dotnet build BackEnd/BackEnd/WebApi.sln --configuration Release --no-restore
