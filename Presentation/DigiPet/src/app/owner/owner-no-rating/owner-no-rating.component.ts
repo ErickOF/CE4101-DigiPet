@@ -49,8 +49,10 @@ export class OwnerNoRatingComponent implements OnInit {
 				autocapitalize: 'off'
 			},
 			showCancelButton: true,
-			confirmButtonClass: 'btn btn-success',
-			cancelButtonClass: 'btn btn-danger',
+			customClass: {
+				confirmButton: 'btn btn-success',
+				cancelButton: 'btn btn-danger'
+			},
 			buttonsStyling: false,
 			allowOutsideClick: () => !Swal.isLoading()
 		}).then((result) => {
@@ -61,8 +63,8 @@ export class OwnerNoRatingComponent implements OnInit {
 				Swal.fire({
 					title: '¡Cancelado!',
 					text: 'La operación fue cancelada.',
-					type: 'error',
-					confirmButtonClass: "btn btn-info",
+					icon: 'error',
+					customClass: { confirmButton: "btn btn-info" },
 					buttonsStyling: false
 				})
 			}
@@ -76,8 +78,8 @@ export class OwnerNoRatingComponent implements OnInit {
 		response.subscribe(data => {
 			Swal.fire({
 				title: '¡Éxito!',
-				type: 'success',
-				confirmButtonClass: "btn btn-info",
+				icon: 'success',
+				customClass: { confirmButton: "btn btn-info" },
 				buttonsStyling: false
 			})
 			this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true})
@@ -87,8 +89,8 @@ export class OwnerNoRatingComponent implements OnInit {
 			Swal.fire({
 				title: 'Error!',
 				text: 'No pudo realizarse la petición.',
-				type: 'error',
-				confirmButtonClass: "btn btn-info",
+				icon: 'error',
+				customClass: { confirmButton: "btn btn-info" },
 				buttonsStyling: false
 			})
 		});

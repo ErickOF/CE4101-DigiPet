@@ -176,7 +176,7 @@ export class TabPetCareComponent implements OnInit {
 		Swal.fire({
 			title: title,
 			text: msg,
-			type: 'error',
+			icon: 'error',
 			confirmButtonText: 'Cool'
 		});
 	}

@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
 			Swal.fire({
 				title: '¡Error de autenticación!',
 				text: '¡Usuario o contraseña inválidos!',
-				type: 'error',
+				icon: 'error',
 				confirmButtonText: 'Cool'
 			});
 		});

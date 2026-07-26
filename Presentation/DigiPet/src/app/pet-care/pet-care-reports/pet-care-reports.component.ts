@@ -171,7 +171,7 @@ export class PetCareReportsComponent implements OnInit {
 		Swal.fire({
 			title: title,
 			text: msg,
-			type: 'error',
+			icon: 'error',
 			confirmButtonText: 'Ok'
 		});
 	}
@@ -184,7 +184,7 @@ export class PetCareReportsComponent implements OnInit {
 		Swal.fire({
 			title: title,
 			text: msg,
-			type: 'success',
+			icon: 'success',
 			confirmButtonText: 'Ok'
 		});
 	}
