@@ -222,6 +222,7 @@ namespace WebApi.Services
             var walkers = _dbContext.Walker.Include(w => w.User)
                 .Include(w => w.Walks).ThenInclude(wa => wa.Pet).ThenInclude(p => p.Petowner)
                 .Include(w => w.WalkerSchedules)
+                .AsEnumerable()
                 //se filtran por provincia, se quitan los bloqueados y los que tienen agendado horas disponibles para el dia
                 .Where(w => (w.User.Province == walkRequestDto.Province || (w.DoesOtherProvinces && w.OtherProvinces.Contains(walkRequestDto.Province))) &&
                 !w.Blocked && w.WalkerSchedules.Select(we => we.Date).Contains(walkRequestDto.Begin.Date)
@@ -460,7 +461,7 @@ namespace WebApi.Services
         {
             var walk = await _dbContext.Walks
                 .Include(w => w.ReportWalks)
-                .Where(w => w.ReportWalks == null || w.ReportWalks.Count == 0)
+                .Where(w => !w.ReportWalks.Any())
                 .FirstOrDefaultAsync(r => r.Id == report.WalkId);
             if (walk == null)
             {
