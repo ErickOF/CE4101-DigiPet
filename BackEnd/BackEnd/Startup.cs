@@ -35,8 +35,8 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllers()
+                .AddNewtonsoftJson();
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -77,9 +77,11 @@ namespace WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUserService userService,IConfigurationService configService,
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IUserService userService,IConfigurationService configService,
             IOptions<AppSettings> appSettingsOpts, IRepository repository)
         {
+
+            app.UseRouting();
 
             // global cors policy
             app.UseCors(x => x
@@ -88,8 +90,9 @@ namespace WebApi
                 .AllowAnyHeader());
 
             app.UseAuthentication();
-            
-            app.UseMvc();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
            
 
             var adminFromConfig = Configuration.GetSection("Admin");

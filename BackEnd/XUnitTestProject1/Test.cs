@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using AngleSharp.Dom.Html;
+using AngleSharp.Html.Dom;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Reflection;
 using System.IO;
@@ -100,17 +101,20 @@ namespace XUnitTestProject1
                 .SetBasePath(contentRoot)
                 .AddJsonFile("appsettings.json");
 
-            var builder = new WebHostBuilder()
-                .UseContentRoot(contentRoot)
-                //.ConfigureServices(InitializeServices)
-                .UseConfiguration(configurationBuilder.Build())
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-                .UseEnvironment("Development")
-                .UseStartup<Startup>();
+            var host = new HostBuilder()
+                .ConfigureWebHost(webBuilder => webBuilder
+                    .UseTestServer()
+                    .UseContentRoot(contentRoot)
+                    //.ConfigureServices(InitializeServices)
+                    .UseConfiguration(configurationBuilder.Build())
 
-           var  _testServer = new TestServer(builder);
+                    .UseEnvironment("Development")
+                    .UseStartup<Startup>())
+                .Start();
 
-            _client = _testServer.CreateClient();
+            _client = host.GetTestClient();
             _client.BaseAddress = new Uri("http://localhost:9999");
         }
 
